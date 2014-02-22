@@ -6,18 +6,18 @@ function(
 ) {
     'use strict';
 
-    var FactsView = Backbone.View.extend({
+    var GamesView = Backbone.View.extend({
         
-        className: 'Content FactsView',
+        className: 'Content GamesView',
 
         initialize: function(){
 
         }, 
 
         render: function(){
-            this.$el.html('Facts');
+            this.$el.html('Games');
         }
     });
 
-    return FactsView;
+    return GamesView;
 });

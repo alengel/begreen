@@ -11,11 +11,11 @@ function(
         className: 'Content IntroView',
 
         initialize: function(){
-
-        }, 
+            
+        },
 
         render: function(){
-            this.$el.append('LALALA');
+            this.$el.html('<div>LALALA</div>');
         }
     });
 

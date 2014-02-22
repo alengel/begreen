@@ -1,12 +1,22 @@
 define([
     'lib/backbone',
     'js/NavigationView',
-    'js/IntroView'
+    'js/IntroView',
+    'js/FactsView',
+    'js/FoodView',
+    'js/HouseView',
+    'js/VideosView',
+    'js/GamesView'
     ], 
 function(
     Backbone,
     NavigationView,
-    IntroView
+    IntroView,
+    FactsView,
+    FoodView,
+    HouseView,
+    VideosView,
+    GamesView
 ) {
     'use strict';
 
@@ -16,7 +26,7 @@ function(
 
         initialize: function(){
             this.nav = new NavigationView();
-            this.introView = new IntroView();
+            
 
             this.listenTo(this.nav, 'intro', this.renderIntroView);
             this.listenTo(this.nav, 'facts', this.renderFactsView);
@@ -34,27 +44,39 @@ function(
         },
 
         renderIntroView: function(){
-            this.$el.append(this.introView.$el); 
+            this.renderView('introView', IntroView);
         },
 
         renderFactsView: function(){
-            //To Do
+            this.renderView('factsView', FactsView);
         },
 
         renderFoodView: function(){
-            //To Do
+            this.renderView('foodView', FoodView);
         },
 
         renderHouseView: function(){
-            //To Do
+            this.renderView('houseView', HouseView);
         },
 
         renderVideosView: function(){
-            //To Do
+            this.renderView('videosView', VideosView);
         },
 
         renderGamesView: function(){
-            //To Do
+            this.renderView('gamesView', GamesView);
+        },
+
+        renderView: function(view, ClassName){
+            if(this.previousView){
+                this.previousView.remove();
+            }
+
+            view = new ClassName();
+            this.$el.append(view.$el);
+            view.render();
+
+            this.previousView = view;
         }
     });
 
