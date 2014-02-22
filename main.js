@@ -4,19 +4,36 @@ define([
     'lib/underscore',
     'lib/backbone',
     //application js files
-    'js/navigation'
+    'js/HeaderView',
+    'js/ContentView'
     ], 
 function(
-    $,
+    jQuery,
     _,
     Backbone,
-    Navigation
+    HeaderView,
+    ContentView
 ) {
     'use strict';
 
     var AppView = Backbone.View.extend({
+
+        className: 'App',
+
         initialize: function(){
-            var nav = new Navigation();
+            this.header = new HeaderView();
+            this.mainContent = new ContentView();
+
+            this.render();
+        },
+
+        render: function(){
+            this.$el.append(this.header.$el);
+            this.$el.append(this.mainContent.$el);
+
+            $('body').append(this.$el);
+
+            this.mainContent.render();
         }
     });
 
