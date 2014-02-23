@@ -14,7 +14,12 @@ function(
         }, 
 
         render: function(){
-            this.$el.append('<header class="header"></header>'); 
+            var template = '<header class="header">' +
+                              '<i class="fa fa-leaf"></i>' +
+                              '<span class="logo-text">Be Green in Brighton</span>' +
+                           '</header>';
+
+            this.$el.html(template); 
         }
     });
 

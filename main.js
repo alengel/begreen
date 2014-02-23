@@ -33,6 +33,7 @@ function(
 
             $('body').append(this.$el);
 
+            this.header.render();
             this.mainContent.render();
         }
     });

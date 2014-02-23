@@ -1,7 +1,7 @@
 define([
     'lib/backbone',
     'js/NavigationView',
-    'js/IntroView',
+    'js/IntroView/IntroView',
     'js/FactsView',
     'js/FoodView',
     'js/HouseView',
