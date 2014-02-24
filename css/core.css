@@ -59,6 +59,7 @@ body {
 .item-container:hover{
     background-color: rgba(31, 166, 122, 0.7);
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .item-intro {
@@ -68,6 +69,45 @@ body {
 
 .nav-icon {
     padding-right: 12px;
+}
+
+/* ModalView CSS */
+.ModalView {
+    background-color: rgba(85, 85, 85, 0.95);
+    border: 1px solid rgba(31, 166, 122, 0.7);
+    border-radius: 12px;
+    color: #FFFFFF;
+    position: absolute;
+    top: 48px;
+    bottom: 9%;
+    left: 9%;
+    right: 9%;
+}
+
+.modal-header {
+    background-color: #FFFFFF;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    color: rgba(0, 102, 77, 0.9);
+    height: 48px;
+    width: 100%;
+}
+
+.modal-icon {
+    padding-right: 6px;
+}
+
+.modal-title {
+    font-size: 26px;
+    position: absolute;
+    left: 12px;
+    top: 6px;
+}
+
+.modal-close-icon {
+    float: right;
+    font-size: 30px;
+    padding: 9px;
 }
 
 /* IntroView CSS */
@@ -145,4 +185,60 @@ body {
 
 .intro-icon {
     padding-right: 12px;
+}
+
+/* FoodView CSS */
+.food-section {
+    background-size: cover;
+    border: 1px solid rgba(31, 166, 122, 0.7);
+    height: 36%;
+    position: absolute;
+    width: 36%;
+}
+
+.food-title {
+    background-color: rgba(85, 85, 85, 0.8);
+    bottom: 0;
+    color: #FFFFFF;
+    font-size: 26px;
+    height: 48px;
+    position: absolute;
+    width: 100%;
+}
+
+.food-icon {
+    margin: 12px 6px 0 6px;
+}
+
+.food-section:hover {
+    border: 2px solid rgba(31, 166, 122, 0.7);
+    cursor: pointer;
+}
+
+.markets {
+    background-image: url(img/markets.jpg);
+    top: 48px;
+    left: 10%;
+    margin-bottom: 4%;
+    margin-right: 4%;
+}
+
+.bulk-food {
+    background-image: url(img/bulk.jpg);
+    top: 48px;
+    right: 10%;
+    margin-bottom: 4%;
+}
+
+.recipes {
+    background-image: url(img/food.jpg);
+    bottom: 10%;
+    left: 10%;
+    margin-right: 4%;
+}
+
+.food-blogs {
+    background-image: url(img/blogs.jpg);
+    bottom: 10%;
+    right: 10%;
 }

@@ -3,7 +3,7 @@ define([
     'js/NavigationView',
     'js/IntroView/IntroView',
     'js/FactsView',
-    'js/FoodView',
+    'js/FoodView/FoodView',
     'js/HouseView',
     'js/VideosView',
     'js/GamesView'
@@ -40,7 +40,7 @@ function(
             this.$el.append(this.nav.$el);
             this.nav.render();
 
-            this.renderIntroView();
+            this.renderFoodView();
         },
 
         renderIntroView: function(){

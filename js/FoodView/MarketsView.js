@@ -6,18 +6,18 @@ function(
 ) {
     'use strict';
 
-    var FoodView = Backbone.View.extend({
+    var MarketsView = Backbone.View.extend({
         
-        className: 'Content FoodView',
+        className: 'MarketsView',
 
         initialize: function(){
-
+            
         }, 
 
         render: function(){
-            this.$el.html('Food');
+            this.$el.html('Markets');
         }
     });
 
-    return FoodView;
+    return MarketsView;
 });
