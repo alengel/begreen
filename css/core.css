@@ -6,6 +6,19 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #FFFFFF;
+}
+
 .Content {
     bottom: 0;
     left: 138px;
@@ -73,15 +86,17 @@ body {
 
 /* ModalView CSS */
 .ModalView {
-    background-color: rgba(85, 85, 85, 0.95);
+    background-color: rgb(85, 85, 85);
     border: 1px solid rgba(31, 166, 122, 0.7);
     border-radius: 12px;
-    color: #FFFFFF;
     position: absolute;
     top: 48px;
     bottom: 9%;
     left: 9%;
     right: 9%;
+    min-width: 680px;
+    min-height: 500px;
+    overflow: hidden;
 }
 
 .modal-header {
@@ -108,6 +123,11 @@ body {
     float: right;
     font-size: 30px;
     padding: 9px;
+}
+
+.modal-close-icon:hover {
+    cursor: pointer;
+    color: rgb(85, 85, 85);
 }
 
 /* IntroView CSS */
@@ -144,17 +164,6 @@ body {
     bottom: 0;
     left: 1px;
     position: absolute;
-}
-
-.growing-trees {
-    background: url(img/paper.jpg);
-    bottom: 5%;
-    left: 1px;
-    right: 0;
-    position: absolute;
-    top: 0;
-    transition: 15s ease;
-    z-index: 1;
 }
 
 .growing-trees.loading {
@@ -204,6 +213,7 @@ body {
     height: 48px;
     position: absolute;
     width: 100%;
+    transition: 0.2s ease-out;
 }
 
 .food-icon {
@@ -211,8 +221,11 @@ body {
 }
 
 .food-section:hover {
-    border: 2px solid rgba(31, 166, 122, 0.7);
     cursor: pointer;
+}
+
+.food-section:hover .food-title{
+    height: 50%;
 }
 
 .markets {
@@ -242,3 +255,79 @@ body {
     bottom: 10%;
     right: 10%;
 }
+
+/* Modal Content CSS */
+.MarketView {
+    padding: 12px;
+}
+
+.section {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    display: inline-block;
+    height: 144px;
+    margin-top: 24px;
+    padding: 12px 0 12px 24px;
+    width: 35%;
+}
+
+.right {
+    float: right;
+    margin-left: 24px;
+    margin-right: 48px;
+}
+
+.left {
+    margin-left: 48px;
+    margin-right: 24px;
+}
+
+.section-title {
+    font-weight: 600;
+}
+
+.section-icon {
+    margin-right: 6px;
+}
+
+.section-location {
+    margin-right: 24px;
+}
+
+.section-info,
+.section-location {
+    color: rgb(0, 102, 77);
+}
+
+.RecipesView {
+    margin-top: 24px;
+}
+
+.table-entries {
+    background-color: rgba(254, 254, 254, 0.9);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    width: 90%;
+}
+
+.table-entry {
+    height: 24px;
+    border-bottom: 1px solid rgb(31, 166, 122);
+    padding: 12px;
+}
+
+.table-entry:first-child {
+    border-top: 1px solid rgb(31, 166, 122);
+}
+
+.table-entry:hover {
+    background-color: rgba(31, 166, 122, 0.7);
+    color: #FFFFFF;
+}
+
+.table-info {
+    float: right;
+    margin-right: 24px;
+}
+

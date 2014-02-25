@@ -1,3 +1,18 @@
+requirejs.config({
+  shim: {
+    'lib/backbone': {
+      deps: ['lib/underscore', 'lib/jquery'],
+      exports: 'Backbone'
+    },
+    'lib/underscore': {
+      exports: '_'
+    },
+    'lib/jquery': {
+      exports: '$'
+    }
+  }
+});
+
 define([
     //3rd party libraries
     'lib/jquery',
