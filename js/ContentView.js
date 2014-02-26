@@ -40,7 +40,7 @@ function(
             this.$el.append(this.nav.$el);
             this.nav.render();
 
-            this.renderFoodView();
+            this.renderIntroView();
         },
 
         renderIntroView: function(){
