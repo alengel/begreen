@@ -30,11 +30,16 @@ function(
         },
 
         renderTrees: function(){
-            this.$el.append(this.leftTreeView.$el);
-            this.leftTreeView.render('left', 150, 610);
+            var that = this;
 
-            this.$el.append(this.rightTreeView.$el);
-            this.rightTreeView.render('right', 500, 610);
+            this.$el.append(this.leftTreeView.$el);
+            // this.$el.append(that.rightTreeView.$el);
+
+            this.leftTreeView.render('left');
+
+            // _.delay(function(){
+            //     that.rightTreeView.render('right');
+            // }, 5000);
         },
 
         growTrees: function() {
@@ -64,11 +69,11 @@ function(
                 that.$el.prepend(popup);
 
                 that.$('.progress-bar-container').remove();
-            }, 15001);
+            }, 6501);
 
             _.delay(function(){
                 that.$('.intro-popup').addClass('after');
-            }, 15005);
+            }, 6505);
         }
     });
 

@@ -143,7 +143,7 @@ a:hover {
     width: 5px;
     height: 100%;
     background-color: rgba(31, 166, 122, 0.7);
-    transition: 15s ease;
+    transition: 6s ease;
 }
 
 .progress-bar.loading {
@@ -277,13 +277,13 @@ a:hover {
 
 .right {
     float: right;
-    margin-left: 24px;
-    margin-right: 48px;
+    margin-left: 4%;
+    margin-right: 8%;
 }
 
 .left {
-    margin-left: 48px;
-    margin-right: 24px;
+    margin-left: 8%;
+    margin-right: 4%;
 }
 
 .section-title {

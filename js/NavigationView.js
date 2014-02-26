@@ -60,7 +60,7 @@ function(
         },
 
         introClicked: function(){
-            this.trigger('intro');
+            // this.trigger('intro');
             this.toggleActiveClass('intro');
         },
 

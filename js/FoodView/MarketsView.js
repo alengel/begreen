@@ -12,7 +12,7 @@ function(
 
         render: function(){
             var template = '<section class="section left">' +
-                                '<p class="section-title">Brighton Farm §</p>' +
+                                '<p class="section-title">Brighton Farm</p>' +
                                 '<p class="section-time"><i class="section-icon fa fa-clock-o"></i>Saturday 9.30am - 4.30pm & Wednesday 9am - 2pm</p>' +
                                 '<a class="section-location" target="_blank" href="http://goo.gl/maps/3NgL7">' +
                                     '<i class="section-icon fa fa-crosshairs"></i>Open Map</a>' +
