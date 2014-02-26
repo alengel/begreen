@@ -4,7 +4,7 @@ define([
     'js/IntroView/IntroView',
     'js/FactsView',
     'js/FoodView/FoodView',
-    'js/HouseView',
+    'js/HouseView/HouseView',
     'js/VideosView',
     'js/GamesView'
     ], 
