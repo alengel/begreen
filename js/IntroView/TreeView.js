@@ -21,7 +21,7 @@ function(
         
         context.translate(containerWidth/3, containerHeight);
 
-        var maxIterations = 15;
+        var maxIterations = 13;
         var currentTransform = context.currentTransform;
         var delay = 250;
           
