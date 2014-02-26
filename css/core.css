@@ -431,3 +431,27 @@ a:hover {
     min-height: 500px;
     height: 100%;
 }
+
+.company-logo {
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 42px;
+    margin-right: 12px;
+    width: 64px;
+}
+
+.ecotricity {
+    background-image: url(img/logos/ecotricity.jpg);
+}
+
+.good-energy {
+    background-image: url(img/logos/good-energy.png);
+}
+
+.company-logo.green-energy {
+    background-image: url(img/logos/green-energy.png);
+}
+
+.woodland {
+    background-image: url(img/logos/woodland.jpg);
+}
