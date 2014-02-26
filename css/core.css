@@ -19,6 +19,13 @@ a:hover {
     color: #FFFFFF;
 }
 
+.spinner-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 26px;
+}
+
 .Content {
     bottom: 0;
     left: 138px;
@@ -196,8 +203,80 @@ a:hover {
     padding-right: 12px;
 }
 
-/* FoodView CSS */
-.food-section {
+/* Modal Content CSS */
+.section {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    display: inline-block;
+    height: 144px;
+    margin-top: 24px;
+    padding: 12px 0 12px 24px;
+    width: 35%;
+}
+
+.small {
+    height: 100px;
+}
+
+.right {
+    float: right;
+    margin-left: 24px;
+    margin-right: 48px;
+}
+
+.left {
+    margin-left: 48px;
+    margin-right: 24px;
+}
+
+.section-title {
+    font-weight: 600;
+}
+
+.section-icon {
+    margin-right: 6px;
+}
+
+.section-location {
+    margin-right: 24px;
+}
+
+.section-info,
+.section-location {
+    color: rgb(0, 102, 77);
+}
+
+/* Modal Table CSS */
+.table-entries {
+    background-color: rgba(254, 254, 254, 0.9);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    width: 90%;
+}
+
+.table-entry {
+    height: 24px;
+    border-bottom: 1px solid rgb(31, 166, 122);
+    padding: 12px;
+}
+
+.table-entry:first-child {
+    border-top: 1px solid rgb(31, 166, 122);
+}
+
+.table-entry:hover {
+    background-color: rgba(31, 166, 122, 0.7);
+    color: #FFFFFF;
+}
+
+.table-info {
+    float: right;
+    margin-right: 24px;
+}
+
+/* FoodView & HouseView CSS */
+.section-container {
     background-size: cover;
     border: 1px solid rgba(31, 166, 122, 0.7);
     height: 36%;
@@ -205,7 +284,7 @@ a:hover {
     width: 36%;
 }
 
-.food-title {
+.container-title {
     background-color: rgba(85, 85, 85, 0.8);
     bottom: 0;
     color: #FFFFFF;
@@ -216,18 +295,20 @@ a:hover {
     transition: 0.2s ease-out;
 }
 
-.food-icon {
+.container-icon {
     margin: 12px 6px 0 6px;
 }
 
-.food-section:hover {
+.section-container:hover {
     cursor: pointer;
 }
 
-.food-section:hover .food-title{
+.section-container:hover .container-title{
     height: 50%;
 }
 
+
+/* FoodView Specific CSS */
 .markets {
     background-image: url(img/markets.jpg);
     top: 48px;
@@ -256,7 +337,7 @@ a:hover {
     right: 10%;
 }
 
-/* Modal Content CSS */
+/* Food Modal Specific CSS */
 .MarketView {
     padding: 12px;
 }
@@ -307,31 +388,70 @@ a:hover {
     margin-top: 24px;
 }
 
-.table-entries {
-    background-color: rgba(254, 254, 254, 0.9);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0;
-    width: 90%;
+/* House Specific CSS */
+.cleaning {
+    background-image: url(img/cleaning.jpg);
+    top: 48px;
+    left: 10%;
+    margin-bottom: 4%;
+    margin-right: 4%;
 }
 
-.table-entry {
-    height: 24px;
-    border-bottom: 1px solid rgb(31, 166, 122);
-    padding: 12px;
+.recycling {
+    background-image: url(img/recycling.jpg);
+    top: 48px;
+    right: 10%;
+    margin-bottom: 4%;
 }
 
-.table-entry:first-child {
-    border-top: 1px solid rgb(31, 166, 122);
+.saving-resources {
+    background-image: url(img/saving-resources.jpg);
+    bottom: 10%;
+    left: 10%;
+    margin-right: 4%;
 }
 
-.table-entry:hover {
-    background-color: rgba(31, 166, 122, 0.7);
-    color: #FFFFFF;
+.green-energy {
+    background-image: url(img/green-energy.jpg);
+    bottom: 10%;
+    right: 10%;
 }
 
-.table-info {
-    float: right;
-    margin-right: 24px;
+/* House Modal Specific CSS */
+.house-section {
+    min-height: 500px;
+    width: 100%;
 }
 
+.section-iframe {
+    border: 0;
+    border-top: 1px solid rgba(31, 166, 122, 0.7);
+    background-color: #FFFFFF;
+    width: 100%;
+    min-height: 500px;
+    height: 100%;
+}
+
+.company-logo {
+    background-size: cover;
+    background-position: 50% 50%;
+    height: 42px;
+    margin-right: 12px;
+    width: 64px;
+}
+
+.ecotricity {
+    background-image: url(img/logos/ecotricity.jpg);
+}
+
+.good-energy {
+    background-image: url(img/logos/good-energy.png);
+}
+
+.company-logo.green-energy {
+    background-image: url(img/logos/green-energy.png);
+}
+
+.woodland {
+    background-image: url(img/logos/woodland.jpg);
+}

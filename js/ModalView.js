@@ -3,22 +3,34 @@ define([
     'js/FoodView/MarketsView',
     'js/FoodView/BulkFoodsView',
     'js/FoodView/RecipesView',
-    'js/FoodView/FoodBlogsView'
+    'js/FoodView/FoodBlogsView',
+    'js/HouseView/CleaningView',
+    'js/HouseView/RecyclingView',
+    'js/HouseView/SavingResourcesView',
+    'js/HouseView/GreenEnergyView'
     ], 
 function(
     Backbone,
     MarketsView,
     BulkFoodsView,
     RecipesView,
-    FoodBlogsView
+    FoodBlogsView,
+    CleaningView,
+    RecyclingView,
+    SavingResourcesView,
+    GreenEnergyView
 ) {
     'use strict';
 
     var iconHash = {
-        'Markets': 'fa-lemon-o',
+        'Markets': 'fa-shopping-cart',
         'BulkFoods': 'fa-filter',
-        'Recipes': 'fa-magic',
-        'FoodBlogs': 'fa-pencil-square-o'
+        'Recipes': 'fa-lemon-o',
+        'FoodBlogs': 'fa-pencil-square-o',
+        'Cleaning': 'fa-wrench',
+        'Recycling': 'fa-trash-o',
+        'SavingResources': 'fa-power-off',
+        'GreenEnergy': 'fa-bolt'
     };
 
     var ModalView = Backbone.View.extend({

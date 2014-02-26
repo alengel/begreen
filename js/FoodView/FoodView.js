@@ -19,19 +19,15 @@ function(
             'click .food-blogs' : 'sectionClicked'
         },
 
-        initialize: function(){
-
-        }, 
-
         render: function(){
-            var template = '<div class="food-section markets"><span class="food-title">' +
-                                '<i class="food-icon fa fa-lemon-o fa-fw"></i>Markets</span></div>' +
-                           '<div class="food-section bulk-food"><span class="food-title">' +
-                                '<i class="food-icon fa fa-filter fa-fw"></i>Bulk Foods</span></div>' +
-                           '<div class="food-section recipes"><span class="food-title">' + 
-                                '<i class="food-icon fa fa-magic fa-fw"></i>Recipes</span></div>' +
-                           '<div class="food-section food-blogs"><span class="food-title">' + 
-                                '<i class="food-icon fa fa-pencil-square-o fa-fw"></i>Food Blogs</span></div>';
+            var template = '<div class="section-container markets"><span class="container-title">' +
+                                '<i class="container-icon fa fa-shopping-cart fa-fw"></i>Markets</span></div>' +
+                           '<div class="section-container bulk-food"><span class="container-title">' +
+                                '<i class="container-icon fa fa-filter fa-fw"></i>Bulk Foods</span></div>' +
+                           '<div class="section-container recipes"><span class="container-title">' + 
+                                '<i class="container-icon fa fa-lemon-o fa-fw"></i>Recipes</span></div>' +
+                           '<div class="section-container food-blogs"><span class="container-title">' + 
+                                '<i class="container-icon fa fa-pencil-square-o fa-fw"></i>Food Blogs</span></div>';
 
             this.$el.html(template);
         }, 

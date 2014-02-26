@@ -4,7 +4,7 @@ define([
     'js/IntroView/IntroView',
     'js/FactsView',
     'js/FoodView/FoodView',
-    'js/HouseView',
+    'js/HouseView/HouseView',
     'js/VideosView',
     'js/GamesView'
     ], 
@@ -40,7 +40,8 @@ function(
             this.$el.append(this.nav.$el);
             this.nav.render();
 
-            this.renderIntroView();
+            // Temporary for development - remove when finished
+            this.renderHouseView();
         },
 
         renderIntroView: function(){
