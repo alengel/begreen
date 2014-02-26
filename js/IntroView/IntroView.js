@@ -30,16 +30,17 @@ function(
         },
 
         renderTrees: function(){
-            var that = this;
+            var that = this,
+                containerWidth = this.$el.width();
 
             this.$el.append(this.leftTreeView.$el);
-            // this.$el.append(that.rightTreeView.$el);
+            this.$el.append(that.rightTreeView.$el);
 
-            this.leftTreeView.render('left');
+            this.leftTreeView.render('left', containerWidth/3);
 
-            // _.delay(function(){
-            //     that.rightTreeView.render('right');
-            // }, 5000);
+            _.delay(function(){
+                that.rightTreeView.render('right', (containerWidth/3) * 2);
+            }, 3000);
         },
 
         growTrees: function() {

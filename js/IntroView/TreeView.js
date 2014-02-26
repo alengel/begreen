@@ -1,6 +1,6 @@
 define([
     'lib/backbone',
-    'lib/polyfill'
+    'lib/transform-tracker'
     ], 
 function(
     Backbone
@@ -11,44 +11,56 @@ function(
         return Math.random() * (max - min) + min;
     }
 
-    function makeTree(location, containerWidth, containerHeight){
+    function makeTree(location, containerWidth, containerHeight, width){
         var canvas = document.createElement( 'canvas' ),
-            context = canvas.getContext( '2d' );
+            context = canvas.getContext( '2d' ),
+            maxIterations = 12,
+            currentTransform,
+            delay = 250;
 
-        canvas.width = containerWidth; 
+        canvas.width = width; 
         canvas.height = containerHeight; 
         $('.tree-' + location).append(canvas);
         
-        context.translate(containerWidth/3, containerHeight);
-
-        var maxIterations = 13;
-        var currentTransform = context.currentTransform;
-        var delay = 250;
+        context.transform = new Transform(context);
+        context.transform.translate(containerWidth, containerHeight);
+        currentTransform = context.transform.getMatrix();
           
         branch(120, 0, currentTransform, maxIterations, delay);
 
-        function branch(len, angle, transform, maxIterations, delay) {
-            context.save();
+        function branch(length, angle, transform, maxIterations, delay) {
+            
             if(maxIterations === 0){
               return;
             }
 
             _.delay(function(transform){
-                context.setTransform.apply(context, transform);
-                context.strokeStyle='palegreen';
+                var currentTransform;
 
-                context.rotate(angle*Math.PI/180);
-                context.lineWidth=len/7;
+                context.transform.setMatrix(transform);
+                
+                if(maxIterations > 8){
+                    context.strokeStyle='rgba(56, 22, 18, 0.7)';
+                }
+                if(maxIterations <= 8 && maxIterations > 4){
+                    context.strokeStyle='rgba(31, 166, 122, 0.7)';
+                }
+                if(maxIterations <= 4 && maxIterations > 0){
+                    context.strokeStyle='rgba(31, 166, 122, 0.4)';
+                }
 
+                context.transform.rotate(angle * Math.PI/180);
+                context.lineWidth = length/7;
                 context.beginPath();
-                context.moveTo(0,0);
-                context.lineTo(0,-len);
+                context.moveTo(0, 0);
+                context.lineTo(0, -length);
                 context.stroke();
-                context.translate(0, -len);
+                context.transform.translate(0, -length);
 
-                var currentTransform = context.currentTransform;
-                branch(len*randomRange(0.7,0.9), 30, currentTransform, maxIterations - 1, delay);
-                branch(len*randomRange(0.7,0.9), -30, currentTransform, maxIterations - 1, delay);
+                currentTransform = context.transform.getMatrix();
+                
+                branch(length * randomRange(0.7, 0.9), 30, currentTransform, maxIterations - 1, delay);
+                branch(length * randomRange(0.7, 0.9), -30, currentTransform, maxIterations - 1, delay);
              }, delay, transform);
         }        
     }
@@ -57,14 +69,14 @@ function(
         
         className: 'TreeView',
 
-        render: function(location){
+        render: function(location, containerWidth){
             var template = '<div class="tree-' + location + '"></div>',
-                containerWidth = this.$el.parent().width(),
+                fullWidth = this.$el.parent().width(),
                 containerHeight = this.$el.parent().height();
 
             this.$el.html(template); 
 
-            makeTree(location, containerWidth, containerHeight);
+            makeTree(location, containerWidth, containerHeight, fullWidth);
         }
     });
 
