@@ -455,3 +455,62 @@ a:hover {
 .woodland {
     background-image: url(img/logos/woodland.jpg);
 }
+
+/* VideosView CSS */
+
+.video-intro {
+    float: right;
+    margin-right: 48px;
+    margin-top: 48px;
+}
+
+.video-carousel {
+    height: 400px;
+    margin-top: 48px;
+    margin-left: 48px;
+    margin-right: 48px;
+}
+
+.video-single {
+    background-color: rgba(85, 85, 85, 0.7);
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-right: 0;
+    top: 30px;
+    transition: 1s;
+}
+
+.video-carousel .video-single.active {
+    background-color: rgba(31, 166, 122, 0.7);
+    margin-left: 6px;
+    margin-right: 6px;
+    top: 0;
+    transition: 1s;
+}
+
+.video-carousel .film_roll_next,
+.video-carousel .film_roll_prev {
+    background: #FFF;
+    border-radius: 0;
+    border: 1px solid rgb(31, 166, 122);
+    color: rgb(31, 166, 122);
+    height: 100px;
+    margin: -20px 0 0 0;
+    padding-top: 50px;
+    top: 140px;
+    width: 48px;
+}
+
+.video-carousel .film_roll_next:hover,
+.video-carousel .film_roll_prev:hover {
+    border: none;
+    color: rgb(31, 166, 122);
+}
+
+.video-carousel .film_roll_next {
+    right: 0;
+}
+
+.video-carousel .film_roll_prev {
+    left: 0;
+}
