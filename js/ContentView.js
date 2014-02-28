@@ -6,7 +6,7 @@ define([
     'js/FoodView/FoodView',
     'js/HouseView/HouseView',
     'js/VideosView',
-    'js/GamesView'
+    'js/GamesView/GamesView'
     ], 
 function(
     Backbone,
@@ -41,7 +41,7 @@ function(
             this.nav.render();
 
             // Temporary for development - remove when finished
-            this.renderHouseView();
+            this.renderGamesView();
         },
 
         renderIntroView: function(){

@@ -249,6 +249,7 @@ a:hover {
 /* Modal Table CSS */
 .table-entries {
     background-color: rgba(254, 254, 254, 0.9);
+    border-radius: 12px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 0;
@@ -261,8 +262,8 @@ a:hover {
     padding: 12px;
 }
 
-.table-entry:first-child {
-    border-top: 1px solid rgb(31, 166, 122);
+.table-entry:last-child {
+    border-bottom: none;
 }
 
 .table-entry:hover {
@@ -513,4 +514,24 @@ a:hover {
 
 .video-carousel .film_roll_prev {
     left: 0;
+}
+
+/* GamesView Specific CSS */
+.section-container.games {
+    height: 60%;
+}
+
+.quiz {
+    background-image: url(img/quiz.jpg);
+    top: 48px;
+    left: 10%;
+    margin-bottom: 4%;
+    margin-right: 4%;
+}
+
+.kids-zone {
+    background-image: url(img/kids.jpg);
+    top: 48px;
+    right: 10%;
+    margin-bottom: 4%;
 }

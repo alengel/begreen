@@ -36,7 +36,7 @@ function(
                                     '<i class="section-icon fa fa-file-o"></i>Visit Website</a>' +
                            '</section>' +
                            '<section class="section right">' +
-                                '<p class="section-title">Inifinty Foods Wholesale</p>' +
+                                '<p class="section-title">Infinity Foods Wholesale</p>' +
                                 '<p class="section-time"><i class="section-icon fa fa-clock-o"></i>Monday - Friday 8.30am - 5pm</p>' +
                                 '<span class="section-location">' +
                                     '<i class="section-icon fa fa-crosshairs"></i>Delivery Only</span>' +
