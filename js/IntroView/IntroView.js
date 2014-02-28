@@ -61,7 +61,7 @@ function(
             var that = this;
 
             _.delay(function(){
-                var popup = '<div class="intro-popup">' +
+                var popup = '<div class="popup">' +
                                 '<h2><i class="fa fa-leaf intro-icon"></i>Welcome To Be Green</h2>' +
                                 '<p>This platform offers some advice on green living in Brighton.</p>' +
                                 '<p>However, it is not all serious - some games are waiting for you if you are up for it.</p>' +
@@ -73,7 +73,7 @@ function(
             }, 6501);
 
             _.delay(function(){
-                that.$('.intro-popup').addClass('after');
+                that.$('.popup').addClass('after');
             }, 6505);
         }
     });
