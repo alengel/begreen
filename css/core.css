@@ -535,3 +535,59 @@ a:hover {
     right: 10%;
     margin-bottom: 4%;
 }
+
+/* Kids Zone Specific CSS */
+.kids-header {
+    border-bottom: 1px solid rgba(31, 166, 122, 0.7);
+    color: rgba(31, 166, 122, 0.7);
+    height: 48px;
+    width: 100%;
+}
+
+.kids-header h2 {
+    display: inline;
+}
+
+.header-icon {
+    font-size: 20px;
+    margin-left: 12px;
+    margin-right: 6px;
+    margin-top: 18px;
+}
+
+.kids-game-content {
+    bottom: 48px;
+    position: absolute;
+    top: 48px;
+    width: 100%;
+}
+
+.kids-nav {
+    border-top: 1px solid rgba(31, 166, 122, 0.7);
+    bottom: 0;  
+    height: 48px;
+    position: absolute;
+    width: 100%;
+}
+
+.kids-nav-item {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(31, 166, 122, 0.7);
+    color: rgb(31, 166, 122);
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    height: 24px;
+    margin-left: 3px;
+    padding: 6px;
+    position: absolute;
+    top: -1px;
+}
+
+.kids-nav-item.active{
+    background-color: rgba(31, 166, 122, 0.7);
+    color: #FFFFFF;
+}
+
+.catch {
+    left: 150px;
+}
