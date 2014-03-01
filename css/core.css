@@ -610,6 +610,7 @@ a:hover {
     padding: 6px;
     bottom: 0;
     right: 0;
+    left: 924px;
     top: 0;
     width: 200px;
 }
@@ -631,13 +632,33 @@ a:hover {
     width: 1px;
 }
 
-.image-original {
-    background-image: url(img/spot/original.png);
+.image-original-1 {
+    background-image: url(img/spot/original-1.png);
     left: 24px;
 }
 
-.image-false {
-    background-image: url(img/spot/false.png);
+.image-false-1 {
+    background-image: url(img/spot/false-1.png);
+    right: 24px;
+}
+
+.image-original-2 {
+    background-image: url(img/spot/original-2.png);
+    left: 24px;
+}
+
+.image-false-2 {
+    background-image: url(img/spot/false-2.png);
+    right: 24px;
+}
+
+.image-original-3 {
+    background-image: url(img/spot/original-3.png);
+    left: 24px;
+}
+
+.image-false-3 {
+    background-image: url(img/spot/false-3.png);
     right: 24px;
 }
 
@@ -658,6 +679,7 @@ a:hover {
 .next-game:hover {
     background-color: #FFFFFF;
     color: rgb(0, 102, 77);
+    cursor: pointer;
 }
 
 .score-point {
@@ -666,36 +688,6 @@ a:hover {
     height: 30px;
     position: absolute;
     width: 30px;
-}
-
-.diff1 {
-    right: 223px;
-    top: 143px;
-    opacity: 0;
-}
-
-.diff2 {
-    bottom: 93px;
-    right: 0;
-    opacity: 0;
-}
-
-.diff3 {
-    right: 267px;
-    bottom: 78px;
-    opacity: 0;
-}
-
-.diff4 {
-    bottom: 236px;
-    right: 70px;
-    opacity: 0;
-}
-
-.diff5 {
-    bottom: 169px;
-    right: 286px;
-    opacity: 0;
 }
 
 .winner {
@@ -712,4 +704,97 @@ a:hover {
 .winner-button {
     right: 24px;
     font-size: 18px;
+}
+
+/* Spot The Difference Game 1 Solution*/
+.pic1.diff1 {
+    right: 223px;
+    top: 143px;
+    opacity: 0;
+}
+
+.pic1.diff2 {
+    bottom: 93px;
+    right: 0;
+    opacity: 0;
+}
+
+.pic1.diff3 {
+    right: 267px;
+    bottom: 78px;
+    opacity: 0;
+}
+
+.pic1.diff4 {
+    bottom: 236px;
+    right: 70px;
+    opacity: 0;
+}
+
+.pic1.diff5 {
+    bottom: 169px;
+    right: 286px;
+    opacity: 0;
+}
+
+/* Spot The Difference Game 2 Solution */
+.pic2.diff1 {
+    right: 48px;
+    top: 110px;
+    opacity: 0;
+}
+
+.pic2.diff2 {
+    bottom: 203px;
+    right: 103px;
+    opacity: 0;
+}
+
+.pic2.diff3 {
+    right: 221px;
+    bottom: 68px;
+    opacity: 0;
+}
+
+.pic2.diff4 {
+    top: 75px;
+    right: 169px;
+    opacity: 0;
+}
+
+.pic2.diff5 {
+    top: 135px;
+    right: 386px;
+    opacity: 0;
+}
+
+/* Spot The Difference Game 3 Solution */
+.pic3.diff1 {
+    right: 205px;
+    top: 9px;
+    opacity: 0;
+}
+
+.pic3.diff2 {
+    bottom: 152px;
+    right: 66px;
+    opacity: 0;
+}
+
+.pic3.diff3 {
+    right: 221px;
+    bottom: 101px;
+    opacity: 0;
+}
+
+.pic3.diff4 {
+    top: 73px;
+    right: 232px;
+    opacity: 0;
+}
+
+.pic3.diff5 {
+    top: 52px;
+    right: 271px;
+    opacity: 0;
 }
