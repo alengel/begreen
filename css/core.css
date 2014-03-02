@@ -662,14 +662,18 @@ a:hover {
     right: 24px;
 }
 
+.found {
+    font-weight: 600;
+}
+
 .next-game {
     background-color: rgba(31, 166, 122, 0.7);
     border-radius: 12px;
     border: 1px solid rgba(31, 166, 122, 0.7);
     color: #FFFFFF;
     padding: 12px;
-    padding-left: 24px;
     position: absolute;
+    text-align: center;
     bottom: 12px;
     right: 12px;
     height: 24px;
@@ -797,4 +801,73 @@ a:hover {
     top: 52px;
     right: 271px;
     opacity: 0;
+}
+
+/* Catch The Squirrel Game CSS */
+.start-game-desc {
+    font-size: 18px;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    right: 12px;
+}
+
+.rolling-bg {
+    background-image: url(img/catch/landscape.png);
+    width: 100%;
+    height: 100%;
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    background-size: cover;
+}
+
+@keyframes moveBG {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
+@-webkit-keyframes moveBG {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
+@-moz-keyframes moveBG {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
+
+.squirrel-number {
+    margin-top: 12px;
+}
+
+.squirrel.static {
+    display: inline-block;
+    height: 40px;
+    margin-right: 6px;
+    margin-left: 12px;
+    margin-top: 12px;
+    position: relative;
+    width: 30px;
+}
+
+.active {
+    opacity: 1;
+}
+
+.inactive {
+    opacity: 0.5;
+}
+
+.inactive:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.squirrel {
+    background-image: url(img/catch/squirrel.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+}
+
+.restart {
+    bottom: 69px;
 }
