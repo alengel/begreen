@@ -24,7 +24,9 @@ function(
 
         render: function(){
             var template = '<div class="image-container">' + 
-                                '<div class="pic image-original-' + this.game +'"></div>' + 
+                                '<div class="pic image-original-' + this.game +'">' +
+                                    '<p class="original-title">Original</p>' +
+                                '</div>' + 
                                 '<div class="pic-divider"></div>' +
                                 '<div class="pic image-false-' + this.game + '"></div>' +
                            '</div>' +
