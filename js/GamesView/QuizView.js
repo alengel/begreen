@@ -102,7 +102,7 @@ function(
                                 '<div class="box answer"></div>' +
                                 '<div class="button continue-button disabled">Continue</div>' +
                             '</div>' +
-                            '<div class="score-container">' +
+                            '<div class="quiz-score-container">' +
                                 '<div class="score">' +
                                     '<p>Score</p>' +
                                     '<span class="current-score">0</span>' +
@@ -209,6 +209,8 @@ function(
         },
 
         chooseNextQuestion: function(){
+            this.$('.continue-button').addClass('disabled');
+
             this.$('.count').text(this.questionsAnswered);
             this.current++;
             if(this.current > questions.length-1){

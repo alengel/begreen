@@ -137,7 +137,7 @@ function(
         },
 
         getDelay: function(){
-            var decrease = 50,
+            var decrease = 100,
                 delay = this.speed - (this.counter * decrease);
 
             if(delay === 100){
@@ -169,6 +169,10 @@ function(
         },
 
         restartGame: function(){
+            this.score = 0;
+            this.counter = 0;
+            this.speed = 5000;
+            
             clearTimeout(window.squirrelTimeout);
             this.$('.image-container').empty();
             this.render();

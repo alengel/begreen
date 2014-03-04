@@ -41,7 +41,7 @@ function(
             this.nav.render();
 
             // Temporary for development - remove when finished
-            this.renderGamesView();
+            this.renderIntroView();
         },
 
         renderIntroView: function(){

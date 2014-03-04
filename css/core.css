@@ -900,8 +900,7 @@ a:hover {
 
 .score-container {
     font-size: 18px;
-    left: 60%;
-    top: 48px;
+    left: 925px;
     position: absolute;
 }
 
@@ -986,4 +985,11 @@ a:hover {
     height: 100%;
     width: 0;
     transition: 1s;
+}
+
+.quiz-score-container {
+    font-size: 18px;
+    left: 60%;
+    top: 48px;
+    position: absolute;
 }
