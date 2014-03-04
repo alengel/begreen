@@ -185,6 +185,7 @@ a:hover {
     color: #FFFFFF;
     height: 50%;
     padding-left: 12px;
+    padding-right: 12px;
     position: absolute;
     width: 40%;
     z-index: 2;
@@ -418,6 +419,18 @@ a:hover {
     right: 10%;
 }
 
+.unavailable {
+    color: white;
+    font-size: 24px;
+    margin-top: 48px;
+    text-align: center;
+}
+
+.unavailable-icon {
+    margin-left: 12px;
+    margin-right: 12px; 
+}
+
 /* House Modal Specific CSS */
 .house-section {
     min-height: 500px;
@@ -550,7 +563,7 @@ a:hover {
 
 .header-icon {
     font-size: 20px;
-    margin-left: 12px;
+    margin-left: 24px;
     margin-right: 6px;
     margin-top: 18px;
 }
@@ -671,7 +684,7 @@ a:hover {
     font-weight: 600;
 }
 
-.next-game {
+.button {
     background-color: rgba(31, 166, 122, 0.7);
     border-radius: 12px;
     border: 1px solid rgba(31, 166, 122, 0.7);
@@ -685,7 +698,7 @@ a:hover {
     width: 96px;
 }
 
-.next-game:hover {
+.button:hover {
     background-color: #FFFFFF;
     color: rgb(0, 102, 77);
     cursor: pointer;
@@ -702,6 +715,7 @@ a:hover {
 .winner {
     font-size: x-large;
     height: 32%;
+    padding: 12px;
     text-align: center;
     width: 25%;
 }
@@ -711,7 +725,6 @@ a:hover {
 }
 
 .winner-button {
-    right: 24px;
     font-size: 18px;
 }
 
@@ -875,4 +888,102 @@ a:hover {
 
 .restart {
     bottom: 69px;
+}
+
+/* QuizView CSS */
+.question-container {
+    font-size: 18px;
+    min-height: 454px;
+    position: absolute;
+    width: 50%;
+}
+
+.score-container {
+    font-size: 18px;
+    left: 60%;
+    top: 48px;
+    position: absolute;
+}
+
+.score, 
+.meter-container {
+    margin-top: 48px;
+    margin-left: 24px;
+}
+
+.quiz-header {
+    font-weight: 600;
+}
+
+.q-count {
+    margin-left: 30px;
+    margin-top: 54px;
+}
+
+.count,
+.current-score {
+    font-weight: 600;
+}
+
+.box {
+    border: 1px solid rgba(31, 166, 122, 0.7);
+    font-size: 24px;
+    height: 80px;
+    margin-left: 24px;
+    margin-top: -6px;
+    padding: 6px;
+}
+
+.box.answer {
+    position: relative;
+    top: 102px;
+}
+
+.q-answer {
+    bottom: 164px;
+    margin-left: 30px;
+    position: absolute;
+}
+
+.button-container {
+    bottom: 192px;
+    position: absolute;
+    right: -12px;
+    width: 200px;
+}
+
+.true.button {
+    right: 148px;
+}
+
+.continue-button {
+    right: 0;
+}
+
+.selected {
+    background-color: #FFFFFF;
+    color: rgb(0, 102, 77);
+}
+
+.disabled,
+.disabled:hover {
+    opacity: 0.5;
+    background-color: rgba(31, 166, 122, 0.7);
+    color: #FFFFFF;
+    cursor: default;
+}
+
+.meter {
+    border: 1px solid rgba(31, 166, 122, 0.7);
+    height: 36px;
+    margin-top: 6px;
+    min-width: 300px;
+    width: 100%;
+}
+
+.inside-meter {
+    background-color: rgba(31, 166, 122, 0.7);
+    height: 100%;
+    width: 0;
+    transition: 1s;
 }

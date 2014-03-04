@@ -21,7 +21,7 @@ function(
 
         render: function(){
             var template =  '<div class="section-container games quiz"><span class="container-title">' +
-                                '<i class="container-icon fa fa-question-circle fa-fw"></i>How green are you?</span>' +
+                                '<i class="container-icon fa fa-question-circle fa-fw"></i>Test Your Greenness!</span>' +
                             '</div>' +
                             '<div class="section-container games kids-zone"><span class="container-title">' +
                                 '<i class="container-icon fa fa-puzzle-piece fa-fw"></i>Kids Zone</span>' +

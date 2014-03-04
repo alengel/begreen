@@ -38,8 +38,8 @@ function(
                                     '<div class="squirrel static active"></div>' + 
                                     '<div class="squirrel static active"></div>' + 
                                 '</div>' +
-                                '<div class="next-game restart">Start Again</div>' +
-                                '<div class="next-game pause">Pause</div>' +
+                                '<div class="button restart">Start Again</div>' +
+                                '<div class="button pause">Pause</div>' +
                            '</div>';
 
             this.$el.html(template);
@@ -51,7 +51,7 @@ function(
             var that = this,
                 popup = '<div class="popup winner">' +
                             '<span class="start-game-desc">Catch All The Squirrels! The game gets faster the longer you play.</span>' +
-                            '<div class="next-game winner-button start-game">Start Game</div>' +
+                            '<div class="button winner-button start-game">Start Game</div>' +
                         '</div>';
             this.$el.prepend(popup);
 
@@ -69,7 +69,7 @@ function(
 
             this.gameStarted = true;
 
-            this.$('.rolling-bg').css('-webkit-animation', 'moveBG 1s linear infinite');
+            this.$('.rolling-bg').css('-webkit-animation', 'moveBG 5s linear infinite');
             this.showChosenSquirrels();
         },
 

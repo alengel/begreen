@@ -36,7 +36,7 @@ function(
                                 '<span class="found">0</span>' +
                                 '<span class="out-of"> / </span>' +
                                 '<span class="total"></span>' +
-                                '<div class="next-game try-another">Try Another</div>' +
+                                '<div class="button try-another">Try Another</div>' +
                            '</div>';
 
             this.$el.html(template);
@@ -80,7 +80,7 @@ function(
             var that = this,
                 popup = '<div class="popup winner">' +
                             '<h2><i class="fa fa-trophy winner-icon"></i>You Won!</h2>' +
-                            '<div class="next-game winner-button next-game">Play Again?</div>' +
+                            '<div class="button winner-button">Play Again?</div>' +
                         '</div>';
             this.$el.prepend(popup);
 
