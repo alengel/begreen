@@ -21,12 +21,52 @@ function(
                 'q': 'There is a farmers market in Florence Rd.',
                 'a': 'True',
                 'la': 'There\'s a lovely market every Saturday.' 
+            },
+            {
+                'q': 'The Open Market is open every day.',
+                'a': 'False',
+                'la': 'The Open Market is not open on Sundays.' 
+            },
+            {
+                'q': 'Infinity Foods Wholesale has a shop in Brighton.',
+                'a': 'False',
+                'la': 'They only deliver, they don\'t have a shop.' 
+            },
+            {
+                'q': 'A leaky toilet can waste 200 gallons a day.',
+                'a': 'True',
+                'la': 'Best to get them fixed right away.' 
+            },
+            {
+                'q': 'The mantra is reduce, reuse, recycle.',
+                'a': 'False',
+                'la': 'It is refuse, reduce, reuse, recylce.' 
+            },
+            {
+                'q': 'The story of stuff is about the chain of products.',
+                'a': 'True',
+                'la': 'It is the life cycle of a product.' 
+            },
+            {
+                'q': 'The materials economy is a song by Madonna.',
+                'a': 'False',
+                'la': 'It is the chain of extraction, production, distribution, consumption and disposal.' 
+            },
+            {
+                'q': 'CO2 emissions are good.',
+                'a': 'False',
+                'la': 'They contribute to global warming.' 
             }
         ],
         answers = {
-            'yes': 'Yes, that\'s right. ',
+            'yes': 'Yes, you\'re right. ',
             'no': 'Not quite. '
-        };
+        },
+        winningLevels = [
+            'Excellent!',
+            'Well Done.',
+            'Maybe Better Next Time.'
+        ];
 
     var QuizView = Backbone.View.extend({
         
@@ -83,12 +123,18 @@ function(
         },
 
         chooseRandomQuestion: function(){
-            this.current = _.random(0, 2);
-            this.$('.question').text(questions[this.current].q);
+            this.questions = _.shuffle(questions);
+            this.current = _.random(0, questions.length-1);
+
+            this.$('.question').text(this.questions[this.current].q);
         },
 
         onTrueClick: function(e){
-            if(!this.answered && !$(e.target).hasClass('selected')){
+            if($(e.target).hasClass('selected')){
+                return;
+            }
+
+            if(!this.answered){
                 this.$('.false').addClass('disabled');
                 this.answered = true;
             }
@@ -97,7 +143,11 @@ function(
         },
 
         onFalseClick: function(e){
-            if(!this.answered && !$(e.target).hasClass('selected')){
+            if($(e.target).hasClass('selected')){
+                return;
+            }
+
+            if(!this.answered){
                 this.$('.true').addClass('disabled');
                 this.answered = true;
             }
@@ -113,19 +163,19 @@ function(
             $target.addClass('selected');
             this.$('.continue-button').removeClass('disabled');
 
-            if($target.text() === questions[this.current].a){
-                this.$('.answer').text(answers.yes + questions[this.current].la);
+            if($target.text() === this.questions[this.current].a){
+                this.$('.answer').text(answers.yes + this.questions[this.current].la);
                 this.score++;
                 this.increaseCounter();
                 return;
             }
-            this.$('.answer').text(answers.no + questions[this.current].la);
+            this.$('.answer').text(answers.no + this.questions[this.current].la);
             this.increaseCounter();
         },
 
         increaseCounter: function(){
             this.questionsAnswered++;
-            if(this.questionsAnswered > questions.length){
+            if(this.questionsAnswered > this.questions.length){
                 this.increaseScore();
                 this.finishQuiz();
                 return;
@@ -142,7 +192,7 @@ function(
         increaseMeter: function(){
             var meter = this.$('.inside-meter'),
                 containerWidth = this.$('.meter').width(),
-                width = (containerWidth/questions.length )* this.score;
+                width = (containerWidth/this.questions.length )* this.score;
             
             meter.css('width', width);
         },
@@ -165,7 +215,7 @@ function(
                 this.current = 0;
             }
 
-            this.$('.question').text(questions[this.current].q);
+            this.$('.question').text(this.questions[this.current].q);
         },
 
         finishQuiz: function(){
@@ -178,7 +228,7 @@ function(
             var that = this,
                 popup = '<div class="popup winner">' +
                             '<p><i class="fa fa-trophy winner-icon"></i>' + 
-                            'Well done! You knew ' + this.score + ' of ' + questions.length + ' questions.</p>' +
+                            this.determineWinningLevel() + ' You knew ' + this.score + ' of ' + questions.length + ' questions.</p>' +
                             '<div class="button winner-button">Play Again?</div>' +
                         '</div>';
             this.$el.prepend(popup);
@@ -186,6 +236,20 @@ function(
             _.delay(function(){
                 that.$('.popup').addClass('after');
             }, 10);
+        },
+
+        determineWinningLevel: function(){
+            if(this.score <= questions.length/3){
+                return winningLevels[2];
+            }
+
+            if(this.score > questions.length/3 && this.score <= questions.length/3 * 2){
+                return winningLevels[1];
+            }
+
+            if(this.score > questions.length/3 * 2){
+                return winningLevels[0];
+            }
         },
 
         playAgain: function(){
