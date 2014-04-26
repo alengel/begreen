@@ -998,7 +998,7 @@ a:hover {
 .map-container {
     position: absolute;
     bottom: 0;
-    top: 0;
+    top: 48px;
     left: 12px;
     right: 12px;
 }

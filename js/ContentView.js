@@ -2,7 +2,7 @@ define([
     'lib/backbone',
     'js/NavigationView',
     'js/IntroView/IntroView',
-    'js/FactsView/FactsView',
+    'js/Facts/FactsView',
     'js/FoodView/FoodView',
     'js/HouseView/HouseView',
     'js/VideosView',
@@ -41,7 +41,7 @@ function(
             this.nav.render();
 
             // Temporary for development - remove when finished
-            this.renderIntroView();
+            this.renderFactsView();
         },
 
         renderIntroView: function(){
