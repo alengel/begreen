@@ -993,3 +993,16 @@ a:hover {
     top: 48px;
     position: absolute;
 }
+
+/* FactsView Specific CSS */
+.map-container {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 12px;
+    right: 12px;
+}
+
+.FactsView .map-container .jvectormap-container {
+    background-color: transparent;
+}
