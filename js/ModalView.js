@@ -30,7 +30,8 @@ function(
         'Cleaning': 'fa-wrench',
         'Recycling': 'fa-trash-o',
         'SavingResources': 'fa-power-off',
-        'GreenEnergy': 'fa-bolt'
+        'GreenEnergy': 'fa-bolt',
+        'country' : 'fa-map-marker'
     };
 
     var ModalView = Backbone.View.extend({
@@ -44,17 +45,24 @@ function(
         initialize: function(options){
             this.sectionName = options.section;
             this.section = options.section.split(' ').join('');
+
+            if(options.country){
+                this.country = options.country;
+            }
         }, 
 
         render: function(){
             var template = '<div class="modal-header">' +
-                                '<span class="modal-title"><i class="modal-icon fa ' + iconHash[this.section] + 
+                                '<span class="modal-title"><i class="modal-icon fa ' + this.getIcon() + 
                                 ' fa-fw"></i>' + this.sectionName + '</span>' +
                                 '<i class="modal-close-icon fa fa-times-circle"></i>' +
                             '</div>';
 
             this.$el.html(template);
-            this.createView();
+            
+            if(!this.country){
+                this.createView();
+            }
         },
 
         createView: function(){
@@ -68,7 +76,20 @@ function(
         onCloseModal: function(e){
             e.preventDefault();
 
+            this.removeModal();
+        },
+
+        removeModal: function(){
             this.$el.remove();
+        },
+
+        //Get icon from hash or if none matches, set default marker
+        getIcon: function(){
+            if(this.country){
+                return iconHash['country'];
+            }
+
+            return iconHash[this.section];            
         }
     });
 

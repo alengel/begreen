@@ -1,12 +1,14 @@
 define([
     'lib/backbone',
     'js/Facts/FactsModel',
+    'js/ModalView',
     'lib/jvectormap/jquery-jvectormap-1.2.2.min',
     'lib/jvectormap/jquery-jvectormap-world-mill-en'   
 ], 
 function(
     Backbone,
-    FactsModel
+    FactsModel,
+    ModalView
 ) {
     'use strict';
 
@@ -50,6 +52,10 @@ function(
         },
 
         showPopup: function(code){
+            if(this.modalView){
+                this.modalView.remove();
+            }
+
             var data = this.model.getData(),
                 countries = this.model.getCountries();
 
@@ -57,6 +63,10 @@ function(
 
             var countryData = _.findWhere(data, {ISO: country.alpha3});
             console.log(countryData);
+
+            this.modalView = new ModalView({section: country.name, country: true});
+            this.$el.append(this.modalView.$el);
+            this.modalView.render();
         }
     });
 
