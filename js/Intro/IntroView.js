@@ -1,6 +1,6 @@
 define([
     'lib/backbone',
-    'js/IntroView/TreeView'
+    'js/Intro/TreeView'
     ], 
 function(
     Backbone,

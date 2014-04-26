@@ -1,12 +1,12 @@
 define([
     'lib/backbone',
     'js/NavigationView',
-    'js/IntroView/IntroView',
+    'js/Intro/IntroView',
     'js/Facts/FactsView',
-    'js/FoodView/FoodView',
-    'js/HouseView/HouseView',
+    'js/Food/FoodView',
+    'js/House/HouseView',
     'js/VideosView',
-    'js/GamesView/GamesView'
+    'js/Games/GamesView'
     ], 
 function(
     Backbone,

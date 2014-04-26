@@ -1,6 +1,6 @@
 define([
-    'js/GamesView/SpotTheDifferenceView',
-    'js/GamesView/CatchTheSquirrelView',
+    'js/Games/SpotTheDifferenceView',
+    'js/Games/CatchTheSquirrelView',
     'lib/backbone'
     ], 
 function(

@@ -1,13 +1,13 @@
 define([
     'lib/backbone',
-    'js/FoodView/MarketsView',
-    'js/FoodView/BulkFoodsView',
-    'js/FoodView/RecipesView',
-    'js/FoodView/FoodBlogsView',
-    'js/HouseView/CleaningView',
-    'js/HouseView/RecyclingView',
-    'js/HouseView/SavingResourcesView',
-    'js/HouseView/GreenEnergyView'
+    'js/Food/MarketsView',
+    'js/Food/BulkFoodsView',
+    'js/Food/RecipesView',
+    'js/Food/FoodBlogsView',
+    'js/House/CleaningView',
+    'js/House/RecyclingView',
+    'js/House/SavingResourcesView',
+    'js/House/GreenEnergyView'
     ], 
 function(
     Backbone,

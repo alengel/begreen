@@ -1,6 +1,6 @@
 define([
-    'js/GamesView/QuizView',
-    'js/GamesView/KidsZoneView',
+    'js/Games/QuizView',
+    'js/Games/KidsZoneView',
     'lib/backbone'
     ], 
 function(
