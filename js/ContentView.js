@@ -39,9 +39,6 @@ function(
         render: function(){
             this.$el.append(this.nav.$el);
             this.nav.render();
-
-            // Temporary for development - remove when finished
-            this.renderFactsView();
         },
 
         renderIntroView: function(){

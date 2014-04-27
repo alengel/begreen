@@ -3,7 +3,8 @@ define([
     'js/Facts/FactsModel',
     'js/ModalView',
     'lib/jvectormap/jquery-jvectormap-1.2.2.min',
-    'lib/jvectormap/jquery-jvectormap-world-mill-en'   
+    'lib/jvectormap/jquery-jvectormap-world-mill-en',
+    'lib/highcharts'
 ], 
 function(
     Backbone,
@@ -64,7 +65,7 @@ function(
             var countryData = _.findWhere(data, {ISO: country.alpha3});
             console.log(countryData);
 
-            this.modalView = new ModalView({section: country.name, country: true});
+            this.modalView = new ModalView({section: country.name, country: countryData});
             this.$el.append(this.modalView.$el);
             this.modalView.render();
         }

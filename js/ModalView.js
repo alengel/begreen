@@ -7,7 +7,8 @@ define([
     'js/House/CleaningView',
     'js/House/RecyclingView',
     'js/House/SavingResourcesView',
-    'js/House/GreenEnergyView'
+    'js/House/GreenEnergyView',
+    'js/Facts/CountryChartView'
     ], 
 function(
     Backbone,
@@ -18,7 +19,8 @@ function(
     CleaningView,
     RecyclingView,
     SavingResourcesView,
-    GreenEnergyView
+    GreenEnergyView,
+    CountryChartView
 ) {
     'use strict';
 
@@ -59,15 +61,20 @@ function(
                             '</div>';
 
             this.$el.html(template);
-            
-            if(!this.country){
-                this.createView();
-            }
+            this.createView();
         },
 
         createView: function(){
-            var ViewClass = eval(this.section.concat('View')),
+            var ViewClass,
+                view;
+
+            if(this.country){
+               view = new CountryChartView({country: this.country}); 
+            }
+            else {
+                ViewClass = eval(this.section.concat('View'));
                 view = new ViewClass();
+            }     
 
             this.$el.append(view.$el);
             view.render();

@@ -1006,3 +1006,9 @@ a:hover {
 .FactsView .map-container .jvectormap-container {
     background-color: transparent;
 }
+
+.CountryChartView {
+    left: 0;
+    bottom: 0;
+    top: 110px;
+}
