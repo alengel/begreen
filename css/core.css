@@ -529,6 +529,15 @@ a:hover {
     left: 0;
 }
 
+.VideosView .film_roll_pager a {
+    border: 2px solid rgb(31, 166, 122);
+}
+
+.VideosView .film_roll_pager a.active,
+.VideosView .film_roll_pager a:hover {
+    background: rgb(31, 166, 122);
+}
+
 /* GamesView Specific CSS */
 .section-container.games {
     height: 60%;
