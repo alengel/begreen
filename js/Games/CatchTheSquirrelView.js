@@ -242,7 +242,10 @@ function(
             
             this.$('.volume').removeClass('fa-volume-off').addClass('fa-volume-up');
             this.volumeOn = true;
-            this.playAudio();
+            
+            if(this.gameStarted){
+                this.playAudio();
+            }
         }
     });
 
