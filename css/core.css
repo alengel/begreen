@@ -586,7 +586,8 @@ a:hover {
 
 .kids-nav {
     border-top: 1px solid rgba(31, 166, 122, 0.7);
-    bottom: 0;  
+    bottom: 0; 
+    top: 587px; 
     height: 48px;
     position: absolute;
     width: 100%;
@@ -614,9 +615,30 @@ a:hover {
     left: 150px;
 }
 
+.KidsZoneView .score-container .button {
+    top: 480px;
+}
+
+.audio-container {
+    color: rgb(85, 85, 85);
+    position: absolute;
+    top: 546px;
+    left: 945px;
+    z-index: 2;
+}
+
+.audio-container .fa-music {
+    color: rgb(31, 166, 122);
+}
+
+.audio-container .volume {
+    margin-left: 18px;
+}
+
 /* Spot The Difference CSS */
 .image-container {
     background-color: #FFFFFF;
+    border-right: 1px solid rgba(31, 166, 122, 0.7);
     position: absolute;
     left: 1px;
     right: 212px;
@@ -627,7 +649,6 @@ a:hover {
 }
 
 .score-container {
-    border-left: 1px solid rgba(31, 166, 122, 0.7);
     position: absolute;
     padding: 6px;
     bottom: 0;
@@ -865,7 +886,32 @@ a:hover {
     margin-top: 12px;
 }
 
-.squirrel.static {
+.active:hover,
+.inactive {
+    opacity: 0.5;
+}
+
+.active,
+.default,
+.default:hover,
+.inactive:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.squirrel,
+.squirrel-count {
+    background-image: url(img/catch/squirrel.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+}
+
+.squirrel-count {
+    background-image: url(img/catch/squirrel.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
     display: inline-block;
     height: 40px;
     margin-right: 6px;
@@ -873,26 +919,6 @@ a:hover {
     margin-top: 12px;
     position: relative;
     width: 30px;
-}
-
-.active {
-    opacity: 1;
-}
-
-.inactive {
-    opacity: 0.5;
-}
-
-.inactive:hover {
-    opacity: 1;
-    cursor: pointer;
-}
-
-.squirrel {
-    background-image: url(img/catch/squirrel.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
 }
 
 .restart {

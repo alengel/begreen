@@ -15,13 +15,19 @@ function(
             'click .restart' : 'restartGame',
             'click .pause' : 'pauseGame',
             'click .squirrel.on' : 'catchSquirrel',
-            'click .static' : 'onShowMoreSquirrels'
+            'click .active' : 'onShowMoreSquirrels',
+            'click .inactive' : 'onShowMoreSquirrels',
+            'click .volume' : 'onAdjustVolume'
         },
 
         initialize: function(){
             this.score = 0;
             this.counter = 0;
             this.speed = 5000;
+
+            this.volumeOn = true;
+            this.bgSound = new Audio('sound/squirrel.wav');
+            this.popSound = new Audio('sound/pop.mp3');
         },
 
         render: function(){
@@ -32,14 +38,18 @@ function(
                                 '<span>Caught </span>' +
                                 '<span class="found">' + this.score + '</span>' +
                                 '<span class="out-of"> squirrels so far! </span>' +
-                                '<div class="squirrel-number">' +
+                                '<div class="squirrel-number hidden">' +
                                     '<p>How many squirrels do you want to appear at the same time?</p>' +
-                                    '<div class="squirrel static active default"></div>' + 
-                                    '<div class="squirrel static active"></div>' + 
-                                    '<div class="squirrel static active"></div>' + 
+                                    '<div class="squirrel-count default"></div>' + 
+                                    '<div class="squirrel-count active"></div>' + 
+                                    '<div class="squirrel-count active"></div>' + 
                                 '</div>' +
-                                '<div class="button restart">Start Again</div>' +
-                                '<div class="button pause">Pause</div>' +
+                                '<div class="button restart hidden">Start Again</div>' +
+                                '<div class="button pause hidden">Pause</div>' +
+                           '</div>' +
+                           '<div class="audio-container">' +
+                               '<i class="fa fa-music fa-3x"></i>' +
+                               '<i class="volume fa fa-volume-up fa-3x"></i>' +
                            '</div>';
 
             this.$el.html(template);
@@ -67,28 +77,32 @@ function(
                 $popup.remove();
             }
 
-            this.gameStarted = true;
-
+            this.$('.pause').removeClass('hidden');
+            this.$('.squirrel-number').removeClass('hidden');
             this.$('.rolling-bg').css('-webkit-animation', 'moveBG 5s linear infinite');
-            this.showChosenSquirrels();
+            
+            this.gameStarted = true;
+            this.showMoreSquirrels();
+
+            this.playBackgroundMusic();
         },
 
         onShowMoreSquirrels: function(e){
-            if($(e.target).hasClass('active') && !($(e.target).hasClass('default'))){
+            if($(e.target).hasClass('active')){
                 $(e.target).removeClass('active').addClass('inactive');
-                this.showChosenSquirrels();
+                this.showMoreSquirrels();
                 return;
             }
 
             $(e.target).removeClass('inactive').addClass('active');
-            this.showChosenSquirrels();
+            this.showMoreSquirrels();
         },
 
-        showChosenSquirrels: function(){
+        showMoreSquirrels: function(){
             var that = this,
                 squirrel = '<div class="squirrel on"></div>';
 
-            this.displaySquirrels = [];
+            this.displaySquirrels = [squirrel];
                 
             _(this.$('.active')).each(function(){
                 that.displaySquirrels.push(squirrel);
@@ -102,6 +116,9 @@ function(
                 shownSquirrels = this.$('.squirrel.on');
 
             this.counter++;
+            if(window.clearTimeout){
+                clearTimeout(window.squirrelTimeout);
+            }
 
             if(shownSquirrels){
                 shownSquirrels.remove();
@@ -151,6 +168,11 @@ function(
             e.target.remove();
 
             this.score++;
+
+            if(this.volumeOn){
+                this.popSound.play();
+            }
+
             this.$('.found').text(this.score);
         },
 
@@ -158,14 +180,19 @@ function(
             var $button = $(e.target);
             if(!this.gameStarted && $button.text() === 'Continue'){
                 this.$('.pause').text('Pause');
-                this.startGame();   
+                this.startGame();
+                this.playAudio();   
                 return;
             }
             
             $button.text('Continue');
+            this.$('.squirrel.on').remove();
             clearTimeout(window.squirrelTimeout);
+
             this.$('.rolling-bg').css('-webkit-animation', 'none');
-            this.gameStarted = false; 
+            this.gameStarted = false;
+
+            this.pauseAudio(); 
         },
 
         restartGame: function(){
@@ -174,8 +201,48 @@ function(
             this.speed = 5000;
             
             clearTimeout(window.squirrelTimeout);
+
             this.$('.image-container').empty();
             this.render();
+        },
+
+        playBackgroundMusic: function(){
+            this.bgSound.volume = 0.3;
+            
+            if (typeof this.bgSound.loop == 'boolean') {
+                this.bgSound.loop = true;
+            }
+            else {
+                this.bgSound.addEventListener('ended', function() {
+                    this.currentTime = 0;
+                    this.play();
+                }, false);
+            }
+            
+            this.playAudio();
+        },
+
+        pauseAudio: function(){
+            this.bgSound.pause();
+        },
+
+        playAudio: function(){
+            if(this.volumeOn){
+                this.bgSound.play();
+            }
+        },
+
+        onAdjustVolume: function(){
+            if(this.$('.volume').hasClass('fa-volume-up')){
+                this.$('.volume').removeClass('fa-volume-up').addClass('fa-volume-off');
+                this.volumeOn = false;
+                this.pauseAudio();
+                return;
+            }
+            
+            this.$('.volume').removeClass('fa-volume-off').addClass('fa-volume-up');
+            this.volumeOn = true;
+            this.playAudio();
         }
     });
 
