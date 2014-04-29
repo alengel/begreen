@@ -60,7 +60,8 @@ function(
         dropInStartGamePopup: function(){
             var that = this,
                 popup = '<div class="popup winner">' +
-                            '<span class="start-game-desc">Catch All The Squirrels! The game gets faster the longer you play.</span>' +
+                            '<p class="start-game-desc">Catch All The Squirrels! The game gets faster the longer you play.</p>' +
+                            '<p class="start-game-desc">Warning! This game never ends!</p>' +
                             '<div class="button winner-button start-game">Start Game</div>' +
                         '</div>';
             this.$el.prepend(popup);

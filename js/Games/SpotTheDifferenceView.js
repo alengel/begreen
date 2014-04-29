@@ -13,13 +13,18 @@ function(
         events: {
             'click .score-point' : 'addPoint',
             'click .winner-button' : 'playAgain',
-            'click .try-another': 'tryAnother'
+            'click .try-another': 'tryAnother',
+            'click .with-sound': 'onWrongLocation',
+            'click .volume' : 'onAdjustVolume'
         },
 
         initialize: function(){
             this.scoreBoard = [];
-
             this.chooseRandomGame();
+
+            this.volumeOn = true;
+            this.failSound = new Audio('sound/fail.wav');
+            this.successSound = new Audio('sound/success.mp3');
         },
 
         render: function(){
@@ -28,7 +33,7 @@ function(
                                     '<p class="original-title">Original</p>' +
                                 '</div>' + 
                                 '<div class="pic-divider"></div>' +
-                                '<div class="pic image-false-' + this.game + '"></div>' +
+                                '<div class="pic with-sound image-false-' + this.game + '"></div>' +
                            '</div>' +
                            '<div class="score-container">' +
                                 '<p>Click where you see a difference.</p>' +
@@ -37,6 +42,10 @@ function(
                                 '<span class="out-of"> / </span>' +
                                 '<span class="total"></span>' +
                                 '<div class="button try-another">Try Another</div>' +
+                           '</div>' + 
+                           '<div class="audio-container">' +
+                               '<i class="fa fa-music fa-3x"></i>' +
+                               '<i class="volume fa fa-volume-up fa-3x"></i>' +
                            '</div>';
 
             this.$el.html(template);
@@ -69,11 +78,25 @@ function(
             this.scoreBoard.push(item);
             this.$('.' + item).css('opacity', '1');
 
+            if(this.volumeOn){
+                this.successSound.play();
+            }
+
             this.$('.found').text(this.scoreBoard.length);
 
             if(this.scoreBoard.length === 5){
                 this.alertWinner();
             }            
+        },
+
+        onWrongLocation: function(e){
+            if($(e.target).hasClass('score-point')){
+                return;
+            }
+
+            if(this.volumeOn){
+                this.failSound.play();
+            }
         },
 
         alertWinner: function(){
@@ -102,6 +125,17 @@ function(
             }
 
             this.render();
+        },
+
+        onAdjustVolume: function(){
+            if(this.$('.volume').hasClass('fa-volume-up')){
+                this.$('.volume').removeClass('fa-volume-up').addClass('fa-volume-off');
+                this.volumeOn = false;
+                return;
+            }
+            
+            this.$('.volume').removeClass('fa-volume-off').addClass('fa-volume-up');
+            this.volumeOn = true;
         }
     });
 
