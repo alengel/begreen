@@ -40,7 +40,7 @@ function(
             {
                 'q': 'The mantra is reduce, reuse, recycle.',
                 'a': 'False',
-                'la': 'It is refuse, reduce, reuse, recylce.' 
+                'la': 'It is refuse, reduce, reuse, recylce, rot.' 
             },
             {
                 'q': 'The story of stuff is about the chain of products.',

@@ -125,6 +125,7 @@ function(
                 this.game = 1;
             }
 
+            this.scoreBoard = [];
             this.render();
         },
 

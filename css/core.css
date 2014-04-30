@@ -635,6 +635,14 @@ a:hover {
     margin-left: 18px;
 }
 
+.audio-container .volume:hover {
+    opacity: 0.5;
+}
+
+.audio-container .volume:active {
+    opacity: 1;
+}
+
 /* Spot The Difference CSS */
 .image-container {
     background-color: #FFFFFF;
@@ -887,19 +895,6 @@ a:hover {
     margin-top: 12px;
 }
 
-.active:hover,
-.inactive {
-    opacity: 0.5;
-}
-
-.active,
-.default,
-.default:hover,
-.inactive:hover {
-    opacity: 1;
-    cursor: pointer;
-}
-
 .squirrel,
 .squirrel-count {
     background-image: url(img/catch/squirrel.png);
@@ -909,10 +904,6 @@ a:hover {
 }
 
 .squirrel-count {
-    background-image: url(img/catch/squirrel.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: absolute;
     display: inline-block;
     height: 40px;
     margin-right: 6px;
@@ -920,6 +911,27 @@ a:hover {
     margin-top: 12px;
     position: relative;
     width: 30px;
+}
+
+.default:hover {
+    cursor: default;
+}
+
+.squirrel-count.active:hover,
+.inactive {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.squirrel-count.active,
+.inactive:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.inactive:active,
+.squirrel-count.active:active {
+    background-size: 105%;
 }
 
 .restart {

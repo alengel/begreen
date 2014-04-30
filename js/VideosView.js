@@ -9,7 +9,7 @@ function(
 
     var videos = [
         'http://player.vimeo.com/video/1709110',
-        'http://www.youtube.com/embed/WfGMYdalClU',
+        'http://player.vimeo.com/video/56093731',
         'http://www.youtube.com/embed/zORv8wwiadQ',
         'http://www.youtube.com/embed/9GorqroigqM',
         'http://www.youtube.com/embed/cpkRvc-sOKk'
