@@ -31,17 +31,29 @@ function(
         },
 
         renderQuizView: function(){
-            var quizView = new QuizView();
+            this.quizView = new QuizView();
 
-            this.$el.html(quizView.$el);
-            quizView.render();
+            this.$el.html(this.quizView.$el);
+            this.quizView.render();
         },
 
         renderKidsZone: function(){
-            var kidsZoneView = new KidsZoneView();
+            this.kidsZoneView = new KidsZoneView();
 
-            this.$el.html(kidsZoneView.$el);
-            kidsZoneView.render();
+            this.$el.html(this.kidsZoneView.$el);
+            this.kidsZoneView.render();
+        },
+
+        remove: function(){
+            if(this.kidsZoneView){
+                this.kidsZoneView.remove();
+            }
+
+            if(this.quizView){
+                this.quizView.remove();
+            }
+
+            Backbone.View.prototype.remove.call(this);
         }
     });
 

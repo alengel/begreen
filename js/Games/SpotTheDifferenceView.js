@@ -25,6 +25,7 @@ function(
             this.volumeOn = true;
             this.failSound = new Audio('sound/fail.wav');
             this.successSound = new Audio('sound/success.mp3');
+            this.successSound.volume = 0.3;
         },
 
         render: function(){
@@ -136,6 +137,10 @@ function(
             
             this.$('.volume').removeClass('fa-volume-off').addClass('fa-volume-up');
             this.volumeOn = true;
+        },
+
+        remove: function(){
+            Backbone.View.prototype.remove.call(this); 
         }
     });
 

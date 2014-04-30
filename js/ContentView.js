@@ -65,12 +65,12 @@ function(
             this.renderView('gamesView', GamesView);
         },
 
-        renderView: function(view, ClassName){
+        renderView: function(view, ViewClass){
             if(this.previousView){
                 this.previousView.remove();
             }
 
-            view = new ClassName();
+            view = new ViewClass();
             this.$el.append(view.$el);
             view.render();
 

@@ -33,23 +33,39 @@ function(
         },
 
         renderSpot: function(){
-            var spotTheDifferenceView = new SpotTheDifferenceView();
-
-            this.$('.kids-game-content').html(spotTheDifferenceView.$el);
-            spotTheDifferenceView.render();
+            this.renderSubview(SpotTheDifferenceView);
 
             this.$('.catch').removeClass('active');
             this.$('.spot').addClass('active');
         },
 
         renderCatch: function(){
-            var catchTheSquirrelView = new CatchTheSquirrelView();
-
-            this.$('.kids-game-content').html(catchTheSquirrelView.$el);
-            catchTheSquirrelView.render();
+            this.renderSubview(CatchTheSquirrelView);
 
             this.$('.spot').removeClass('active');
             this.$('.catch').addClass('active');
+        },
+
+        renderSubview: function(ViewClass){
+            if(this.subView){
+                this.removeSubview();
+            }
+
+            this.subView = new ViewClass();
+
+            this.$('.kids-game-content').html(this.subView.$el);
+            this.subView.render();
+        },
+
+        removeSubview: function(){
+            this.subView.remove();
+            this.subView = undefined;
+        },
+
+        remove: function(){
+            this.removeSubview();
+            
+            Backbone.View.prototype.remove.call(this);
         }
     });
 

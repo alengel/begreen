@@ -746,7 +746,6 @@ a:hover {
     font-size: x-large;
     height: 32%;
     padding: 12px;
-    text-align: center;
     width: 25%;
 }
 
@@ -756,6 +755,11 @@ a:hover {
 
 .winner-button {
     font-size: 18px;
+}
+
+.popup.after h2 {
+    font-size: 20px;
+    margin-top: 0;
 }
 
 /* Spot The Difference Game 1 Solution*/

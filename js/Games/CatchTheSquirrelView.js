@@ -1,6 +1,6 @@
 define([
     'lib/backbone'
-    ], 
+], 
 function(
     Backbone
 ) {
@@ -60,8 +60,8 @@ function(
         dropInStartGamePopup: function(){
             var that = this,
                 popup = '<div class="popup winner">' +
-                            '<p class="start-game-desc">Catch All The Squirrels! The game gets faster the longer you play.</p>' +
-                            '<p class="start-game-desc">Warning! This game never ends!</p>' +
+                            '<h2><i class="fa fa-puzzle-piece intro-icon"></i>Catch All The Squirrels!</h2>' +
+                            '<span class="start-game-desc">Warning! This game gets faster the longer you play and never ends.</span>' +
                             '<div class="button winner-button start-game">Start Game</div>' +
                         '</div>';
             this.$el.prepend(popup);
@@ -247,6 +247,13 @@ function(
             if(this.gameStarted){
                 this.playAudio();
             }
+        },
+
+        remove: function(){
+            this.pauseAudio();
+            this.bgSound = 0;
+
+            Backbone.View.prototype.remove.call(this); 
         }
     });
 
