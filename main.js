@@ -21,7 +21,7 @@ define([
     //application js files
     'js/HeaderView',
     'js/ContentView'
-    ], 
+    ],
 function(
     jQuery,
     _,
@@ -35,6 +35,7 @@ function(
 
         className: 'App',
 
+        //initialises the Backbone application and calls render
         initialize: function(){
             this.header = new HeaderView();
             this.mainContent = new ContentView();
@@ -42,6 +43,7 @@ function(
             this.render();
         },
 
+        //renders and appends the header and main content to the DOM
         render: function(){
             this.$el.append(this.header.$el);
             this.$el.append(this.mainContent.$el);

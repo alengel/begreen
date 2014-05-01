@@ -1,15 +1,16 @@
 define([
     'lib/backbone'
-    ], 
+    ],
 function(
     Backbone
 ) {
     'use strict';
 
     var NavigationView = Backbone.View.extend({
-        
+
         className: 'NavigationView',
 
+        //listen to events
         events:{
             'click .item-intro' : 'introClicked',
             'click .item-facts' : 'factsClicked',
@@ -19,6 +20,7 @@ function(
             'click .item-games' : 'gamesClicked'
         },
 
+        //render view and append template to DOM
         render: function(){
             var template = '<aside class="nav">' +
                                 '<ul class="nav-list">' +
@@ -51,49 +53,59 @@ function(
 
 
             this.$el.append(template);
-            this.introClicked(); 
+
+            //call introClicked by default
+            this.introClicked();
         },
 
+        //prevent default event and call introClicked
         onIntroClicked:function(e){
             e.preventDefault();
             this.introClicked();
         },
 
+        //trigger intro event and toggle the active class in the navigation bar
         introClicked: function(){
             this.trigger('intro');
             this.toggleActiveClass('intro');
         },
 
+        //prevent default event, trigger facts event and toggle the active class in the navigation bar
         factsClicked: function(e){
             e.preventDefault();
             this.trigger('facts');
             this.toggleActiveClass('facts');
         },
 
+        //prevent default event, trigger food event and toggle the active class in the navigation bar
         foodClicked: function(e){
             e.preventDefault();
             this.trigger('food');
             this.toggleActiveClass('food');
         },
 
+        //prevent default event, trigger house event and toggle the active class in the navigation bar
         houseClicked: function(e){
             e.preventDefault();
             this.trigger('house');
             this.toggleActiveClass('house');
         },
 
+        //prevent default event, trigger videos event and toggle the active class in the navigation bar
         videosClicked: function(e){
             e.preventDefault();
             this.trigger('videos');
             this.toggleActiveClass('videos');
         },
 
+        //prevent default event, trigger games event and toggle the active class in the navigation bar
         gamesClicked: function(e){
             e.preventDefault();
             this.trigger('games');
             this.toggleActiveClass('games');
         },
 
+        //helper function to toggle the CSS class active
         toggleActiveClass: function(tab){
             var item = '.item-' + tab;
 
