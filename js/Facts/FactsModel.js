@@ -7,6 +7,7 @@ function(
     'use strict';
 
     var FactsModel = Backbone.Model.extend({
+        //CO2 emissions from world data bank
         getData: function(){
             return [
                       {
@@ -4044,6 +4045,9 @@ function(
                     ];
         },
 
+        //country data - used to map alpha2 country code to alpha3 country code
+        //jvectormap returns alpha2 country code
+        //worldbank data uses alpha3 country code
         getCountries: function(){
             return [
                       {

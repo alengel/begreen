@@ -14,11 +14,13 @@ function(
         
         className: 'KidsZoneView',
 
+        //listening to events
         events: {
             'click .spot' : 'renderSpot',
             'click .catch' : 'renderCatch'
         },
 
+        //render view and append template to DOM
         render: function(){
             var template = '<header class="kids-header"><i class="header-icon fa fa-puzzle-piece fa-fw"></i><h2>Kids Zone<h2></header>' +
                            '<div class="kids-game-content"></div>' + 
@@ -29,9 +31,11 @@ function(
 
             this.$el.html(template);
 
+            //render the Spot The Difference Game by default
             this.renderSpot();
         },
 
+        //render SpotTheDifferenceView and toggle the CSS class active on the navigation
         renderSpot: function(){
             this.renderSubview(SpotTheDifferenceView);
 
@@ -39,6 +43,7 @@ function(
             this.$('.spot').addClass('active');
         },
 
+        //render CatchTheSquirrelView and toggle the CSS class active on the navigation
         renderCatch: function(){
             this.renderSubview(CatchTheSquirrelView);
 
@@ -46,7 +51,9 @@ function(
             this.$('.catch').addClass('active');
         },
 
+        //render passed in view and append to DOM
         renderSubview: function(ViewClass){
+            //remove subview if already on view
             if(this.subView){
                 this.removeSubview();
             }
@@ -57,11 +64,13 @@ function(
             this.subView.render();
         },
 
+        //remove subview and set as undefined
         removeSubview: function(){
             this.subView.remove();
             this.subView = undefined;
         },
 
+        //remove subviews and remove view itself
         remove: function(){
             this.removeSubview();
             

@@ -10,6 +10,7 @@ function(
         
         className: 'BulkFoodsView',
 
+        //render view and append to DOM
         render: function(){
             var template = '<section class="section left">' +
                                 '<p class="section-title">Hisbe</p>' +

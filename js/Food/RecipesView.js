@@ -10,6 +10,7 @@ function(
         
         className: 'RecipesView',
 
+        //render view and append to DOM
         render: function(){
             var template = '<ul class="table-entries">' +
                                 '<li class="table-entry">' + 

@@ -12,6 +12,7 @@ function(
         
         className: 'Content FoodView',
 
+        //listening to events
         events: {
             'click .markets' : 'sectionClicked',
             'click .bulk-food' : 'sectionClicked',
@@ -19,6 +20,7 @@ function(
             'click .food-blogs' : 'sectionClicked'
         },
 
+        //render view and append to DOM
         render: function(){
             var template = '<div class="section-container markets"><span class="container-title">' +
                                 '<i class="container-icon fa fa-shopping-cart fa-fw"></i>Markets</span></div>' +
@@ -32,6 +34,7 @@ function(
             this.$el.html(template);
         }, 
 
+        //prevent default event and initialise modal, append to DOM and render
         sectionClicked: function(e){
             e.preventDefault();
 

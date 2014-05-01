@@ -10,6 +10,7 @@ function(
         
         className: 'FoodBlogsView',
 
+        //render view and append to DOM
         render: function(){
             var template = '<section class="section small left">' +
                                 '<p class="section-title">Zero Waste Home Recipes</p>' +

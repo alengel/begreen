@@ -11,13 +11,16 @@ function(
         
         className: 'Content CountryChartView',
 
+        //initialise view with default options
         initialize: function(options){
             this.country = options.country;
         },
 
+        //render view and append highchart to DOM
         render: function(){
             this.$el.html('<div class="bar-chart"></div>');
 
+            //set options on highcharts
             $('.bar-chart').highcharts({
                 chart: {
                     backgroundColor: 'transparent',
@@ -86,10 +89,12 @@ function(
             });
         },
 
+        //get categories (the years on x-axis) from country.data
         getCategories: function(){
             return _.keys(this.country.data);
         },
 
+        //get series (the co2 emissions on y-axis) from country.data
         getSeriesData: function(){
             return _.values(this.country.data);
         }   

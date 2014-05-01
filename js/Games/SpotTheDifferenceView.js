@@ -10,14 +10,16 @@ function(
         
         className: 'SpotTheDifferenceView',
 
+        //listening to events
         events: {
             'click .score-point' : 'addPoint',
-            'click .winner-button' : 'playAgain',
+            'click .winner-button' : 'tryAnother',
             'click .try-another': 'tryAnother',
             'click .with-sound': 'onWrongLocation',
             'click .volume' : 'onAdjustVolume'
         },
 
+        //initialise view with default values and load audio
         initialize: function(){
             this.scoreBoard = [];
             this.chooseRandomGame();
@@ -28,6 +30,7 @@ function(
             this.successSound.volume = 0.3;
         },
 
+        //render view and append template to DOM, add differences
         render: function(){
             var template = '<div class="image-container">' + 
                                 '<div class="pic image-original-' + this.game +'">' +
@@ -54,10 +57,12 @@ function(
             this.addAllDifferences();
         },
 
+        //return random game
         chooseRandomGame: function(){
             this.game = _.random(1, 3);
         },
 
+        //add differences to DOM depending on selected game
         addAllDifferences: function(){
             var differences = '<div class="diff1 pic' + this.game + ' score-point"></div>' +
                               '<div class="diff2 pic' + this.game + ' score-point"></div>' +
@@ -69,27 +74,34 @@ function(
             this.$('.image-false-' + this.game).append(differences);
         },
 
+        //make difference visible and play sound effect
         addPoint: function(e){
             var item = e.target.classList[0];
 
+            //if item was selected already, return
             if(_(this.scoreBoard).contains(item)){
                 return;
             }
 
+            //add item to scoreBoard and update visibility
             this.scoreBoard.push(item);
             this.$('.' + item).css('opacity', '1');
 
+            //play sound if enabled
             if(this.volumeOn){
                 this.successSound.play();
             }
 
+            //update score board in DOM
             this.$('.found').text(this.scoreBoard.length);
 
+            //alert winner when all differences are found
             if(this.scoreBoard.length === 5){
                 this.alertWinner();
             }            
         },
 
+        //play sound effect when clicking on anything but a difference
         onWrongLocation: function(e){
             if($(e.target).hasClass('score-point')){
                 return;
@@ -100,6 +112,7 @@ function(
             }
         },
 
+        //prepend popup to DOM and add CSS class to drop in popup after 10ms
         alertWinner: function(){
             var that = this,
                 popup = '<div class="popup winner">' +
@@ -113,11 +126,7 @@ function(
             }, 10);
         },
 
-        playAgain: function(){
-            this.tryAnother();
-            this.render();
-        },
-
+        //get the next game in the array, reset scoreboard and render view
         tryAnother: function(){
             this.game += 1;
 
@@ -129,6 +138,7 @@ function(
             this.render();
         },
 
+        //turn volume on or off and toggle volume icon in DOM
         onAdjustVolume: function(){
             if(this.$('.volume').hasClass('fa-volume-up')){
                 this.$('.volume').removeClass('fa-volume-up').addClass('fa-volume-off');
@@ -140,6 +150,7 @@ function(
             this.volumeOn = true;
         },
 
+        //remove view
         remove: function(){
             Backbone.View.prototype.remove.call(this); 
         }

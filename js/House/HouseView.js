@@ -12,6 +12,7 @@ function(
         
         className: 'Content HouseView',
 
+        //listening to events
         events: {
             'click .cleaning' : 'sectionClicked',
             'click .recycling' : 'sectionClicked',
@@ -19,6 +20,7 @@ function(
             'click .green-energy' : 'sectionClicked'
         },
 
+        //render view and append template to DOM
         render: function(){
             var template = '<div class="section-container cleaning"><span class="container-title">' +
                                 '<i class="container-icon fa fa-wrench fa-fw"></i>Cleaning</span></div>' +
@@ -32,6 +34,7 @@ function(
             this.$el.html(template);
         }, 
 
+        //prevent default event, initialise modal view, append to DOM and render
         sectionClicked: function(e){
             e.preventDefault();
 

@@ -10,6 +10,7 @@ function(
 
         className: 'CatchTheSquirrelView',
 
+        //listening to events
         events: {
             'click .start-game' : 'startGame',
             'click .restart' : 'restartGame',
@@ -20,6 +21,7 @@ function(
             'click .volume' : 'onAdjustVolume'
         },
 
+        //initialise view and set default values, load audio
         initialize: function(){
             this.score = 0;
             this.counter = 0;
@@ -30,6 +32,7 @@ function(
             this.popSound = new Audio('sound/pop.mp3');
         },
 
+        //render view and append template to DOM
         render: function(){
             var template = '<div class="image-container">' +
                                 '<div class="rolling-bg"></div>' +

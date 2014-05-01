@@ -14,11 +14,13 @@ function(
         
         className: 'Content GamesView',
 
+        //listening to events
         events: {
             'click .quiz' : 'renderQuizView',
             'click .kids-zone' : 'renderKidsZone'
         },
 
+        //render view and append template to DOM
         render: function(){
             var template =  '<div class="section-container games quiz"><span class="container-title">' +
                                 '<i class="container-icon fa fa-question-circle fa-fw"></i>Test Your Greenness!</span>' +
@@ -30,6 +32,7 @@ function(
             this.$el.html(template);
         },
 
+        //initialise QuizView, append template to DOM and render view
         renderQuizView: function(){
             this.quizView = new QuizView();
 
@@ -37,6 +40,7 @@ function(
             this.quizView.render();
         },
 
+        //initialise KidsZoneView, append template to DOM and render view
         renderKidsZone: function(){
             this.kidsZoneView = new KidsZoneView();
 
@@ -44,6 +48,7 @@ function(
             this.kidsZoneView.render();
         },
 
+        //remove child views and view itself
         remove: function(){
             if(this.kidsZoneView){
                 this.kidsZoneView.remove();

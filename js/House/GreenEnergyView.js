@@ -10,6 +10,7 @@ function(
         
         className: 'GreenEnergyView',
 
+        //render view and append template to DOM
         render: function(){
             var template = '<section class="section small left">' +
                                 '<p class="section-title"><img class="company-logo ecotricity"></img>Ecotricity</p>' +

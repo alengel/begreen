@@ -72,18 +72,20 @@ function(
         
         className: 'QuizView',
 
+        //listening to events
         events: {
-            'click .true' : 'onTrueClick',
-            'click .false' : 'onFalseClick',
+            'click .answer-button' : 'onAnswerClick',
             'click .continue-button' : 'onContinue',
             'click .winner-button' : 'playAgain'
         },
 
+        //initialise view with default views
         initialize: function(){
             this.score = 0;
             this.questionsAnswered = 1;
         },
 
+        //render view and append template to DOM
         render: function(){
             var template =  '<header class="kids-header">' +
                                 '<i class="header-icon fa fa-question-circle fa-fw"></i>' + 
@@ -95,8 +97,8 @@ function(
                                 '</p>' +
                                 '<div class="box question"></div>' +
                                 '<div class="button-container">' +
-                                    '<div class="button true">True</div>' +
-                                    '<div class="button false">False</div>' +
+                                    '<div class="button answer-button true">True</div>' +
+                                    '<div class="button answer-button false">False</div>' +
                                 '</div>' +
                                 '<p class="q-answer">Answer</p>' +
                                 '<div class="box answer"></div>' +
@@ -122,6 +124,7 @@ function(
             this.chooseRandomQuestion();
         },
 
+        //return a random question from the hash and set text in DOM
         chooseRandomQuestion: function(){
             this.questions = _.shuffle(questions);
             this.current = _.random(0, questions.length-1);
@@ -129,52 +132,56 @@ function(
             this.$('.question').text(this.questions[this.current].q);
         },
 
-        onTrueClick: function(e){
+        //check answer based on selection
+        onAnswerClick: function(e){
+            //if already selected, return 
             if($(e.target).hasClass('selected')){
                 return;
             }
 
+            //add CSS class disabled to false button if true selected
             if(!this.answered){
-                this.$('.false').addClass('disabled');
+                if($(e.target).hasClass('true')){
+                    this.$('.false').addClass('disabled');
+                } else {
+                    this.$('.true').addClass('disabled');
+                }
                 this.answered = true;
             }
 
             this.checkAnswer($(e.target));
         },
 
-        onFalseClick: function(e){
-            if($(e.target).hasClass('selected')){
-                return;
-            }
-
-            if(!this.answered){
-                this.$('.true').addClass('disabled');
-                this.answered = true;
-            }
-            
-            this.checkAnswer($(e.target));
-        },
-
+        //check answer in the questions hash
         checkAnswer: function($target){
+            //if target is disabled and already answered, return
             if($target.hasClass('disabled') && this.answered){
                 return;
             }
 
+            //enable continue button
             $target.addClass('selected');
             this.$('.continue-button').removeClass('disabled');
 
+            //if the answer matches the correct answer, build a user-friendly answer
+            //increase score and counter
             if($target.text() === this.questions[this.current].a){
                 this.$('.answer').text(answers.yes + this.questions[this.current].la);
                 this.score++;
                 this.increaseCounter();
                 return;
             }
+
+            //if answer doesn't match, build user friendly answer and increase counter only
             this.$('.answer').text(answers.no + this.questions[this.current].la);
             this.increaseCounter();
         },
 
+        //increase counter and score
         increaseCounter: function(){
             this.questionsAnswered++;
+            
+            //when all questions are answered, increase score for the last time and finish quiz
             if(this.questionsAnswered > this.questions.length){
                 this.increaseScore();
                 this.finishQuiz();
@@ -184,35 +191,42 @@ function(
             this.increaseScore();
         },
 
+        //update DOM with score and increase meter
         increaseScore: function(){
             this.$('.current-score').text(this.score);
             this.increaseMeter();
         },
 
+        //update meter with new CSS width
         increaseMeter: function(){
             var meter = this.$('.inside-meter'),
                 containerWidth = this.$('.meter').width(),
-                width = (containerWidth/this.questions.length )* this.score;
+                width = (containerWidth/this.questions.length ) * this.score;
             
             meter.css('width', width);
         },
 
+        //choose next question on continue button
         onContinue: function(e) {
+            //if continue is disabled, return
             if($(e.target).hasClass('disabled')){
                 return; 
             }
 
+            //choose next question, update DOM and clear answer related DOM
             this.chooseNextQuestion();
             this.$('.answer').text('');
             this.$('.true, .false').removeClass('disabled selected');
             this.answered = false;
         },
 
+        //disable continue button, update counter, show next question in DOM
         chooseNextQuestion: function(){
             this.$('.continue-button').addClass('disabled');
 
             this.$('.count').text(this.questionsAnswered);
             this.current++;
+            
             if(this.current > questions.length-1){
                 this.current = 0;
             }
@@ -220,12 +234,14 @@ function(
             this.$('.question').text(this.questions[this.current].q);
         },
 
+        //alert winner 
         finishQuiz: function(){
             this.finishedQuiz = true;
             this.$('.button').addClass('disabled');
             this.alertWinner();
         },
 
+        //prepend popup to DOM and add CSS class to drop in popup after 10ms
         alertWinner: function(){
             var that = this,
                 popup = '<div class="popup winner">' +
@@ -240,6 +256,7 @@ function(
             }, 10);
         },
 
+        //display winning message based on level of competence
         determineWinningLevel: function(){
             if(this.score <= questions.length/3){
                 return winningLevels[2];
@@ -254,6 +271,7 @@ function(
             }
         },
 
+        //reset quiz and render view
         playAgain: function(){
             this.score = 0;
             this.questionsAnswered = 1;
