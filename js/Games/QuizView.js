@@ -50,7 +50,7 @@ function(
             {
                 'q': 'The materials economy is a song by Madonna.',
                 'a': 'False',
-                'la': 'It is the chain of extraction, production, distribution, consumption and disposal.' 
+                'la': 'It is the chain of products from extraction to production and disposal.' 
             },
             {
                 'q': 'CO2 emissions are good.',
