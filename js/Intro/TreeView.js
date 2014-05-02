@@ -46,7 +46,7 @@ function(
 
                 context.transform.setMatrix(transform);
 
-                //change the strokeStyle (make it thinner, the higher up it is)
+                //change the strokeStyle (make it change colour, the higher up it is)
                 if(maxIterations > 8){
                     context.strokeStyle='rgba(56, 22, 18, 0.7)';
                 }

@@ -1,13 +1,13 @@
 define([
     'lib/backbone'
-    ], 
+    ],
 function(
     Backbone
 ) {
     'use strict';
 
     var RecyclingView = Backbone.View.extend({
-        
+
         className: 'RecyclingView',
 
         //render the view and append the template to the DOM
@@ -23,17 +23,24 @@ function(
                                                 '<span>Sorry, you need an Internet connection to view this content.</span>' +
                                             '<i class="unavailable-icon fa fa-warning"></i>' +
                                           '</div>';
-                
+
                 this.$el.html(unavailableTemplate);
                 return;
             }
 
             this.$el.html(template);
+            this.setHeightOnIframe();
 
             //when iframe is loaded, remove spinner
             this.$('.section-iframe').load(function(){
                 that.$('.spinner-icon').remove();
             });
+        },
+
+        //dynamically set height on the iframe as iframes can't detect their parent container size
+        setHeightOnIframe: function(){
+            var height = this.$el.parent().height();
+            this.$('iframe').css('height', height);
         }
     });
 
